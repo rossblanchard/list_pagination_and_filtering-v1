@@ -19,6 +19,7 @@ const showPageItems = (page,items) => {
     let start = (page * 10) -10;              //set first student item in the collection to display based on the page #
     let stop = (start + 9);                   //set last student item in the collection to display  based on the page #
     for (let x=0; x < items.length; x++ ) {   //loop over entire collection
+      if (x >= start && x <= stop)  {         // if we encounter an x between start and stop
           items[x].style.display = 'block';   // set style.display to 'block'
       } else {
           items[x].style.display = 'none';    //otherwise, set it to 'none'.
