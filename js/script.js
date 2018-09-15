@@ -5,6 +5,7 @@ FSJS project 2 - List Filter and Pagination
 
 //got hints from https://github.com/awillem/project-2-list-pagination/blob/master/js/script.js
 //and https://github.com/VincentElliott/List-Pagination-and-Filtering/blob/master/js/script.js
+// as posted in the Treehouse slack channel
 
 const studentList = document.getElementsByClassName('student-item cf'); //HTML collection of all student list items
 const listLength = studentList.length; //save the length of the collection in its own const
@@ -20,7 +21,7 @@ const showPageItems = (page,items) => {
     let stop = (start + 9);                   //set last student item in the collection to display  based on the page #
     for (let x=0; x < items.length; x++ ) {   //loop over entire collection
       if (x >= start && x <= stop)  {         // if we encounter an x between start and stop
-          items[x].style.display = 'block';   // set style.display to 'block'
+          items[x].style.display = 'block';   // set style.display to 'block'. ('Inline' looked different than the original)
       } else {
           items[x].style.display = 'none';    //otherwise, set it to 'none'.
       } //end if/else
