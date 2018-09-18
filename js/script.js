@@ -3,6 +3,10 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
 
+//tested against 44 and 64 students index.html files.
+//tested that index.html works without this js file.
+//tested in Chrome, Firefox and Safari. tested in mobile mode in Chrome dev tools.
+
 //got hints from https://github.com/awillem/project-2-list-pagination/blob/master/js/script.js
 //and https://github.com/VincentElliott/List-Pagination-and-Filtering/blob/master/js/script.js
 // as posted in the Treehouse slack channel
