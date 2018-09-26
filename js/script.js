@@ -7,8 +7,9 @@ FSJS project 2 - List Filter and Pagination
 //tested that index.html works without this js file.
 //tested in Chrome, Firefox and Safari. tested in mobile mode in Chrome dev tools.
 
-//got hints from https://github.com/awillem/project-2-list-pagination/blob/master/js/script.js
+//got hints from Dom Scripting by Example class
 //and https://github.com/VincentElliott/List-Pagination-and-Filtering/blob/master/js/script.js
+//and https://github.com/awillem/project-2-list-pagination/blob/master/js/script.js
 // as posted in the Treehouse slack channel
 
 const studentList = document.getElementsByClassName('student-item cf'); //HTML collection of all student list items
