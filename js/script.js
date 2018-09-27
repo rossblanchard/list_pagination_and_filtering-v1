@@ -18,6 +18,22 @@ let page = 1 ; //set the initial page here. it will change
 const itemsPerPage = 10; //ten items per page
 const totalPages = Math.ceil(listLength/itemsPerPage) ; //calcualte how many pages there are. Round up.
 const pageDiv = document.querySelector('.page'); //const for the .page div so we can add an element later.
+const pageHeaderDiv = document.querySelector('.page-header');
+
+// function to create elements so we save some lines of redundant code.
+
+function createElement(elementName, property, value) {
+  const element = document.createElement(elementName);
+  element[property] = value;
+  return element;
+}
+
+//function to append children
+
+function appendChild(parent, child) {
+   const appended = parent.appendChild(child);
+   return appended
+}
 
 //function to show student list of ten or fewer for any given page
 
@@ -26,7 +42,7 @@ const showPageItems = (page,items) => {
     let stop = (start + 9);                   //set last student item in the collection to display  based on the page #
     for (let x=0; x < items.length; x++ ) {   //loop over entire collection
       if (x >= start && x <= stop)  {         // if we encounter an x between start and stop
-          items[x].style.display = 'block';   // set style.display to 'block'. ('Inline' looked different than the original)
+         items[x].style.display = ''; // set style.display to ''
       } else {
           items[x].style.display = 'none';    //otherwise, set it to 'none'.
       } //end if/else
@@ -38,20 +54,20 @@ showPageItems(page,studentList);              //call the function
 //function to build the pagination links and an event listener to listen for clicks.
 
  const pagination = (pageCount) => {
-    const paginationDiv = document.createElement('div');  //const to create a new div, set class to pagination as instructed
-    paginationDiv.className = 'pagination';
-    const paginationUl = document.createElement('ul');    //create an unordered list within pagination div
+
+    const paginationDiv = createElement('div', 'className', 'pagination');    //const to create a new div, set class to pagination as instructed
+    const paginationUl =  createElement('ul');    //create an unordered list within pagination div
 
     for (y = 1; y <= pageCount; y++) {                    //loop through page count to build appropriate number of links
-      const paginationLi = document.createElement('li');    //create list item
-      const paginationA = document.createElement('a');      //create anchor tag
+      const paginationLi = createElement('li'); //create list item
+      const paginationA = createElement('a');
       if (y === page){
-          paginationA.className = "active";               //set the class to active for the page we're on. Always begins at 1
+         paginationA.className = 'active'; //anchor tag, set the class to active for the page we're on. Always begins at 1
       } //end if
       paginationA.href = "#";                             //set url to # to take us to page top.
       paginationA.textContent = y;                        //set the display value (page number) using loop counter value.
-      paginationLi.appendChild(paginationA);              // append the anchor to the Li
-      paginationUl.appendChild(paginationLi);             //append the Li to the UL
+      appendChild(paginationLi, paginationA);             // append the anchor to the Li
+      appendChild(paginationUl, paginationLi);           //append the Li to the UL
 
       // event listener on the anchor tag waiting for a click
       paginationA.addEventListener("click", (e) => {
@@ -62,8 +78,9 @@ showPageItems(page,studentList);              //call the function
         showPageItems(page,studentList);                      //call page builder function to run with the new page.
     }); //end listener
 
-    paginationDiv.appendChild(paginationUl);              //append the UL we created to the Div we created in this function
-    pageDiv.appendChild(paginationDiv);                   //append the div we created in the function to the main div
+    appendChild(paginationDiv, paginationUl);                 //append the UL we created to the Div we created in this function
+    appendChild(pageDiv, paginationDiv);                       //append the div we created in the function to the main div
+
   } //end for loop
 } //end pagination function
 
