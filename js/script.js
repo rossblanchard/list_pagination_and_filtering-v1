@@ -18,7 +18,6 @@ let page = 1 ; //set the initial page here. it will change
 const itemsPerPage = 10; //ten items per page
 const totalPages = Math.ceil(listLength/itemsPerPage) ; //calcualte how many pages there are. Round up.
 const pageDiv = document.querySelector('.page'); //const for the .page div so we can add an element later.
-const pageHeaderDiv = document.querySelector('.page-header');
 
 // function to create elements so we save some lines of redundant code.
 
